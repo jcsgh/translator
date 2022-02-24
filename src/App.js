@@ -13,6 +13,25 @@ function App() {
   const [input, setInput] = useState(''); 
   const [output, setOutput] = useState(''); 
 
+  const translate = () => {
+
+    const params = new URLSearchParams();
+    params.append('q', input);
+    params.append('source', from);
+    params.append('target', to);
+    params.append('api_key', 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx');
+
+     axios.post('https://libretranslate.de/translate', params, {
+       headers:{
+         'accept':'application/json',
+         'Content-type': 'application/x-www-form-urlencoded'
+        }
+      }).then(res=>{
+        console.log(res.data)
+        setOutput(res.data.translatedText)
+      })
+  }
+
   useEffect(()=>{
 
     axios.get("https://libretranslate.com/languages",
@@ -30,22 +49,23 @@ function App() {
       <Header/>
 
       <div>
-        From:
-        <select>
+        From ({from}):
+        <select onChange={e=>setFrom(e.target.value)}>
           {options.map(opt => <option value={opt.code}>{opt.name}</option>)}
         </select>
-        To:
-        <select>
+        To ({to}):
+        <select onChange={e=>setTo(e.target.value)}>
           {options.map(opt => <option value={opt.code}>{opt.name}</option>)}
         </select>
         <div>
-          <textarea col="50" rows="8"></textarea>
+          <textarea col="50" rows="8" onInput={(e)=>setInput(e.target.value)}
+          ></textarea>
         </div>
         <div>
-          <textarea col="50" rows="8"></textarea>
+          <textarea col="50" rows="8" value={output}></textarea>
         </div>
         <div>
-          <button >Translate</button>
+          <button onClick={e=>translate()}>Translate</button>
         </div>
       </div>
 

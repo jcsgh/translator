@@ -1,5 +1,5 @@
 const Header = () => {
-    return <h1>Translator</h1>
+    return <h1>Translator App</h1>
 }
 
 export default Header;
