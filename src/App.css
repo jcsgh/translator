@@ -9,12 +9,24 @@ div {
 }
 
 select {
-  padding: 5px;
+  padding: 1em;
+  margin: 1em;
+  border: 2px solid indianred;
+  border-radius: 1em;
 }
 
 textarea {
+  text-align: left;
   height: 10%;
   width: 30%;
+  border: 2px solid indianred;
+}
+
+button {
+  border: 2px solid indianred;
+  border-radius: 1em;
+  padding: 1em;
+  margin: 1em;
 }
 
 
