@@ -1,5 +1,7 @@
-.App {
+* {
   text-align: center;
+  background-color:antiquewhite;
+  color: indianred;
 }
 
 div {
@@ -8,6 +10,11 @@ div {
 
 select {
   padding: 5px;
+}
+
+textarea {
+  height: 10%;
+  width: 30%;
 }
 
 

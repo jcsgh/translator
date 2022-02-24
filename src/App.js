@@ -1,6 +1,7 @@
 import './App.css';
 import Header from "./components/Header"
 import Footer from "./components/Footer"
+import myStyles from "./components/myStyles.css"
 import { useEffect, useState } from 'react';
 import React from 'react';
 const axios = require('axios').default;
@@ -49,7 +50,7 @@ function App() {
   }, [])
 
   return (
-    <div>
+    <div className="primary">
       <Header/>
 
       <div>
