@@ -8,8 +8,8 @@ const axios = require('axios').default;
 function App() {
 
   const [options, setOptions] = useState([]);
-  const [to, setTo] = useState(''); 
-  const [from, setFrom] = useState(''); 
+  const [to, setTo] = useState('en'); 
+  const [from, setFrom] = useState('en'); 
   const [input, setInput] = useState(''); 
   const [output, setOutput] = useState(''); 
 
@@ -26,9 +26,13 @@ function App() {
          'accept':'application/json',
          'Content-type': 'application/x-www-form-urlencoded'
         }
-      }).then(res=>{
+      })
+      .then(res=>{
         console.log(res.data)
         setOutput(res.data.translatedText)
+      })
+      .catch((err) => {
+        console.log(err)
       })
   }
 
